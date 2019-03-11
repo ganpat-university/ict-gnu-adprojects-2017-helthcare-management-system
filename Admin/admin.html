@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Login Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="A.css" rel="stylesheet" type="text/css">
+<script source="A.js"type="text/js"></script>
+</head>
+
+<body>
+
+<h2>Only Admin Login Form</h2>
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="adm.png" alt="adm" class="adm">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required="required">
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required="required">
+        
+      <button type="submit">Login</button>
+	  
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+	  <table border="1" width="90" height="50" align="center"><tr><td bgcolor="#228B22"><center><a href="adsign.php">Sign Up</a></center></td></tr></table>
+    </div>
+  </form>
+</div>
+
+
+
+</body>
+</html>
+</form>
+
+</html>

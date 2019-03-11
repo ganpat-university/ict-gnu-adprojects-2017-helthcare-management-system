@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ 
+<link href="secure.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<form class="modal-content" method="POST" action="">
+
+<div class="container">
+
+	  <label for="Admin Id"><b>Admin Id</b></label>
+      <input type="text" placeholder="Enter Admin Id" pattern="[0-9]{7}" title="Admin Id Only contain 7 number" name="AID" required>
+ 
+      <label for="Username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" pattern="[a-z]{1,15}"
+        title="Username should only contain lowercase letters. e.g. abcd" name="user" required>
+		
+		<div class="clearfix">
+        
+        <button type="submit" name="submit" class="signupbtn">Submit</button>
+      </div>
+	  
+</div>
+
+</form>
+
+</body>
+
+</html>
+<?php
+$con=MySQLi_connect("localhost","root","","adminss") or die(mysql_error());
+$db=MySQLi_select_db($con,'adminss') or die(mysql_error());
+
+if(isset($_POST['submit'])){
+$AID=$_POST['AID'];
+$user=$_POST['user'];
+
+
+
+if($AID=='')
+{
+	echo "<script>alert('Enter Your Password')</script>";
+}
+
+if($user==''){
+	echo "<script>alert('Enter Your Username')</script>";
+}
+
+else
+{
+	$query="SELECT * FROM `ads` WHERE AID='$AID' && user='$user'";
+	$run=MySQLi_query($con,$query) or die(mysql_error());
+	
+	
+	$total=MySQLi_num_rows($run);
+		if($total==1)
+		{
+			echo "<script>alert('You are Successfully Login')</script>";
+		}
+		else
+		{
+			echo "<script>alert('Please Enter Valid Username and Password !!! Login Failed')</script>";
+		}
+		
+	
+	
+	
+}	
+}
+?>
+
+
