@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 10, 2019 at 04:12 PM
+-- Generation Time: Mar 23, 2019 at 11:21 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -25,6 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `appointment`
+--
+
+DROP TABLE IF EXISTS `appointment`;
+CREATE TABLE IF NOT EXISTS `appointment` (
+  `Id` int(100) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contact` bigint(100) NOT NULL,
+  `doctor` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `time` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`Id`, `fname`, `lname`, `email`, `contact`, `doctor`, `date`, `time`) VALUES
+(12, 'Agrawal', 'Karan', 'agrawalkaran929@gmail.com', 8732993613, 'Dr. Karan Agrawal For Cardiologist', '2019-03-22', '8:00 to 8:30'),
+(13, 'Agrawal', 'Karan', 'agrawalkaran929@gmail.com', 8732993613, 'Dr. Karan Agrawal For Cardiologist', '2019-03-22', '8:00 to 8:30'),
+(14, 'Agrawal', 'Karan', 'agrawalkaran929@gmail.com', 8200937518, 'Dr. Karan Agrawal For Cardiologist', '2019-03-22', '8:00 to 8:30'),
+(15, 'Agrawal', 'Karan', 'agrawalkaran929@gmail.com', 8732993613, 'Dr. Vedant Soni For Orthopedic', '2019-03-22', '8:00 to 8:30');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -38,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) NOT NULL,
   `password_two` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`

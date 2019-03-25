@@ -25,9 +25,7 @@
        <input id="password" name="password" type="password" pattern="^\S{6,}$" title='Must have at least 6 characters'  placeholder="Password" >
         
       <button type="submit" name="login">Login</button>
-      <label>
-        <input type="checkbox" unchecked="unchecked" required="required" name="remember"> I accept Terms and Conditions
-      </label>
+      
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -70,6 +68,9 @@ else
 		if($total==1)
 		{
 			echo "<script>alert('You are Successfully Login')</script>";
+			
+			
+			header("Location: usersuccess.php");
 		}
 		else
 		{

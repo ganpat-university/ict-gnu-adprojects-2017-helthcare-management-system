@@ -35,10 +35,7 @@
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Verify Password" required>
       
-      <label>
-        <input type="checkbox" unchecked="unchecked" name="remember" required="required" style="margin-bottom:15px">I accept Terms and Agreements
-      </label>
-
+      
      
 
       <div class="clearfix">
@@ -112,7 +109,33 @@ else
 else
     {
 	  $query="INSERT INTO users(fname,lname,email,user,password,password_two) VALUES('$fname','$lname','$email','$user','$password','$password_two')";
+	  
+	   require("E:\wamp64\www\Health\PHPMailer\PHPMailer.php");
+	   require("E:\wamp64\www\Health\PHPMailer\SMTP.php");
+	   include_once "PHPMailer/Exception.php";
+	  $mail = new PHPMailer\PHPMailer\PHPMailer();
+      $mail->IsSMTP();
+	  $mail->SMTPDebug = 4;
+	  $mail->SMTPAuth = true;
+	  $mail->SMTPSecure = 'tsl';
+	  $mail->Host = "smtp.gmail.com";
+      $mail->Port = 465; // or 587
+      $mail->IsHTML(true);
+	  $mail->Username = "agrawalkaran422@gmail.com";
+      $mail->Password = "181267174";
+	  $mail->setFrom('agrawalkaran422@gmail.com');
+	  $mail->addAddress($_POST['email'],$_POST['fname'],$_POST['lname']);
+	  $mail->subject="Please Verify Email-Id";
 	 
+	  $mail->Body="
+	  Please Click On The Link Below:<br><br>
+	   
+	  ";
+	   if ($mail->send())
+                    $msg = "You have been registered! Please verify your email!";
+                else
+                    $msg = "Something wrong happened! Please try again!";
+	  
 	  if(mysqli_query($con,$query))
 	  {
 		echo "<script>alert('You are successfully Submitted')</script>";
